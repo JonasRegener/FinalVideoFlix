@@ -1,0 +1,54 @@
+.content {
+    background-color: rgb(16, 16, 17);
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
+}
+h4 {
+    color: white;
+}
+
+.subclass-container {
+    margin-left: 24px;
+    display: flex;
+    overflow-y: scroll;
+    white-space: nowrap;
+    box-sizing: content-box;
+    .child {
+        margin-right: 8px;
+    }
+    /* Firefox */
+    
+}
+.subclass-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #9b1a1a;
+  }
+  
+  /* Handle */
+  .subclass-container::-webkit-scrollbar-thumb {
+    background: rgb(248, 2, 2);
+  }
+  
+  /* Handle on hover */
+  .subclass-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(187, 4, 4);
+  }
+  .thumbnail-img {
+    height: 180px; 
+    width: 240px;
+  }

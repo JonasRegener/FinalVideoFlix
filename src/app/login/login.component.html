@@ -1,0 +1,44 @@
+<body>
+    <app-header class="header" style="width: 100%;"></app-header>
+    <div class="background">
+      <div class="black-opacity" style="display: flex; justify-content: center; align-items: center;">
+  
+  
+        <form class="example-form">
+  
+          <mat-form-field appearance="fill" style="color:white">
+            <mat-label>Enter your email</mat-label>
+            <input matInput name="username" [(ngModel)]="form.email" required [formControl]="emailFC" required>
+            <mat-error *ngIf="emailFC.invalid">{{getErrorMessage()}}</mat-error>
+  
+          </mat-form-field>
+  
+          <div>
+            <mat-form-field appearance="fill" *ngIf="newUser">
+              <mat-label>Vorname</mat-label>
+              <input type="first_name" style="color:white" matInput placeholder="Hans">
+            </mat-form-field>
+          </div>
+          <mat-form-field appearance="fill" *ngIf="newUser">
+            <mat-label>Nachname</mat-label>
+            <input type="last_name" style="color:white" matInput placeholder="Hans">
+          </mat-form-field>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input type="password" name="password" style="color:white" [(ngModel)]="form.password" required matInput>
+            </mat-form-field>
+  
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; ">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" (click)="changeNewUserStatus()"
+                style="color: rgb(255, 0, 0);">New?</mat-checkbox>
+            </section>
+            <button mat-flat-button color="warn" *ngIf="!newUser" (click)="login()"> Sign In</button>
+            <button mat-flat-button color="warn" *ngIf="newUser"> Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
