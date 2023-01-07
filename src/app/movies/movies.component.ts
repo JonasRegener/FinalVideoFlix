@@ -23,7 +23,7 @@ export class MoviesComponent implements OnInit {
         console.log(data)
       },
       (err) => {
-        console.log(err.error)
+        console.log(err)
       }
     );
   }

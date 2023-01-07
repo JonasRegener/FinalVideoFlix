@@ -1,22 +1,29 @@
 <div style="height: 90%;
 width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
     <h2 style="text-align:center;margin-bottom: 100px;">TITEL</h2>
-    <div style="width: 90% ;height: 60%; background-color: beige; margin-bottom: 100px;"></div>
-    <span style="margin-left: 50px;
+    <div style="width: 90% ;height: 60%; background-color: beige; margin-bottom: 100px;">
+        <vg-player>
+            <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" controls>
+                <source src="http://localhost:8000/movieST/ocean/" type="video/mp4">
+            </video>
+        </vg-player>
+    </div>
+ 
+</div>
+<span style="margin-left: 50px;
     margin-right: 50px;
     margin-top: 24px;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem voluptatem aliquam ipsam, possimus numquam
-        eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat repudiandae consectetur similique nisi
-        architecto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem voluptatem aliquam ipsam,
-        possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat repudiandae consectetur
-        similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem voluptatem aliquam
-        ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat repudiandae
-        consectetur similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem
-        voluptatem aliquam ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat
-        repudiandae consectetur similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-        autem voluptatem aliquam ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde,
-        quaerat repudiandae consectetur similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Est autem voluptatem aliquam ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente
-        unde, quaerat repudiandae consectetur similique nisi architecto?
-    </span>
-</div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem voluptatem aliquam ipsam, possimus numquam
+    eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat repudiandae consectetur similique nisi
+    architecto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem voluptatem aliquam ipsam,
+    possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat repudiandae consectetur
+    similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem voluptatem aliquam
+    ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat repudiandae
+    consectetur similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Est autem
+    voluptatem aliquam ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde, quaerat
+    repudiandae consectetur similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+    autem voluptatem aliquam ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente unde,
+    quaerat repudiandae consectetur similique nisi architecto?Lorem ipsum dolor sit amet consectetur adipisicing
+    elit. Est autem voluptatem aliquam ipsam, possimus numquam eligendi tenetur temporibus quas rem eum ex sapiente
+    unde, quaerat repudiandae consectetur similique nisi architecto?
+</span>
