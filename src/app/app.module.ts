@@ -15,6 +15,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+ import { MovieplayerComponent } from './movies/movieplayer/movieplayer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HeaderComponent,
     LoginComponent,
     ImprintComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieplayerComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +42,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    VgCoreModule,
+    VgBufferingModule,
+    VgOverlayPlayModule,
+    VgControlsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,MovieplayerComponent]
 })
 export class AppModule { }
