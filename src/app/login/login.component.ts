@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { TokenStorageService } from '../services/token-storage.service';
@@ -18,7 +18,7 @@ import { HeaderComponent } from '../header/header.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  emailFC = new FormControl('', [Validators.required, Validators.email]);
+  emailFC = new UntypedFormControl('', [Validators.required, Validators.email]);
   newUser: boolean = false;
   form: any = {
     email: null,
