@@ -1,162 +1,180 @@
 <app-header></app-header>
 <div class="content">
-    <div style="color:white; margin-left: 24px;">
 
-        <div>
-            <h4> Natur Videos</h4>
-            karusell mit buttons
-            Entweder mit Shift Scrollen für horizonalten scroll oder noch etwas implementieren
-            <div class="subclass-container" style="overscroll-behavior: swipe;">
-                <div style="margin-right: 16px; position: relative; ; " (click)="startMoviePlayer()">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 1</h6>
-                        <span> Beschreibung Nummer Eins</span>
+    <div class="videoplayer-container">
+        <div style="position: absolute; top: 45px; bottom: 0; left: 0; right: 0; z-index: 0">
+            <vg-player (onPlayerReady)="onPlayerReady($event)">
+                <vg-overlay-play></vg-overlay-play>
+                <vg-buffering></vg-buffering>
 
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 2</h6>
-                        <span> Beschreibung Nummer Zwei</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 3</h6>
-                        <span> Beschreibung Nummer Drei</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 4</h6>
-                        <span> Beschreibung Nummer V</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" class="thumbnail-img">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
-                </div>
+          
+
+                <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin>
+                    <source src="http://localhost:8000/movieST480/ocean/" type="video/mp4">
+                </video>
+            </vg-player>
+        </div>
+    </div>
+    <div style="position: absolute; top: 45px; bottom: 0; left: 0; right: 0; z-index: 1; min-height: 100%">
+        <div style="min-height: calc(100vh - 45px); width: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h1 style="color: white; ">Krasse Partikel - der Film</h1>
+            <div>
+                <button mat-flat-button color="primary" style="margin-right: 12px; background-color: rgb(206, 41, 41);"> <mat-icon style="margin-right: 4px">preview</mat-icon>Vollbild </button>
+                <button mat-flat-button color="primary" style="background-color: rgb(206, 41, 41);">  <mat-icon style="margin-right: 4px; ">info</mat-icon>Details </button>
             </div>
         </div>
-        <div>
-            <h4> Wissenschaft </h4>
-            <div class="subclass-container">
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 1</h6>
-                        <span> Beschreibung Nummer Eins</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 2</h6>
-                        <span> Beschreibung Nummer Zwei</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 3</h6>
-                        <span> Beschreibung Nummer Drei</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 4</h6>
-                        <span> Beschreibung Nummer V</span>
-                    </div>
-                </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
+    </div>
+</div>
+<div class="content-list">
+    <div>
+        <h4> Natur Videos</h4>
+        karusell mit buttons
+        Entweder mit Shift Scrollen für horizonalten scroll oder noch etwas implementieren
+        <div class="subclass-container" style="overscroll-behavior: swipe;">
+            <div style="margin-right: 16px; position: relative; ; " (click)="startMoviePlayer()">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 1</h6>
+                    <span> Beschreibung Nummer Eins</span>
+
                 </div>
             </div>
-        </div>
-        <div>
-            <h4> Technik </h4>
-            <div class="subclass-container">
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 1</h6>
-                        <span> Beschreibung Nummer Eins</span>
-                    </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 2</h6>
+                    <span> Beschreibung Nummer Zwei</span>
                 </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 2</h6>
-                        <span> Beschreibung Nummer Zwei</span>
-                    </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 3</h6>
+                    <span> Beschreibung Nummer Drei</span>
                 </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 3</h6>
-                        <span> Beschreibung Nummer Drei</span>
-                    </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 4</h6>
+                    <span> Beschreibung Nummer V</span>
                 </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 4</h6>
-                        <span> Beschreibung Nummer V</span>
-                    </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
                 </div>
-                <div style="margin-right: 16px; position: relative;">
-                    <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
-                    <div class="centered">
-                        <h6 style="text-align:center"> Film 5</h6>
-                        <span> Beschreibung Nummer F</span>
-                    </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" class="thumbnail-img">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
+    <div>
+        <h4> Wissenschaft </h4>
+        <div class="subclass-container">
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 1</h6>
+                    <span> Beschreibung Nummer Eins</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 2</h6>
+                    <span> Beschreibung Nummer Zwei</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 3</h6>
+                    <span> Beschreibung Nummer Drei</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 4</h6>
+                    <span> Beschreibung Nummer V</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4> Technik </h4>
+        <div class="subclass-container">
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 1</h6>
+                    <span> Beschreibung Nummer Eins</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 2</h6>
+                    <span> Beschreibung Nummer Zwei</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 3</h6>
+                    <span> Beschreibung Nummer Drei</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 4</h6>
+                    <span> Beschreibung Nummer V</span>
+                </div>
+            </div>
+            <div style="margin-right: 16px; position: relative;">
+                <img src="../../assets/background-login.jpg" style="height: 120px; width: 160px">
+                <div class="centered">
+                    <h6 style="text-align:center"> Film 5</h6>
+                    <span> Beschreibung Nummer F</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

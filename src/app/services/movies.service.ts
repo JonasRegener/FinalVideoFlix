@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:8000/movieST/ocean/';
+const API_URL = 'http://localhost:8000/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'video/mp4' })
 };
@@ -14,14 +14,15 @@ export class MoviesService {
 
 
   //getmovies
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+  getAllMovies(): Observable<any> {
+    return this.http.get(API_URL + 'movieAPI/', httpOptions);
   }
   /*  getMovies(): Observable<any> {
      return this.http.get(API_URL + 'ocean', { responseType: 'video/mp4' });
    } */
   getMovies(): Observable<any> {
-    return this.http.get(API_URL, httpOptions);
+    return this.http.get(API_URL + 'movieST/ocean/', httpOptions);
+    /* title in als parameter übergeben und in value der methode */
   }
   /*   getUserBoard(): Observable<any> {
       return this.http.get(API_URL + 'user', { responseType: 'text' });

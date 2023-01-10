@@ -7,11 +7,6 @@ import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 
 
-
-
-
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +15,7 @@ import { HeaderComponent } from '../header/header.component';
 export class LoginComponent implements OnInit {
   emailFC = new UntypedFormControl('', [Validators.required, Validators.email]);
   newUser: boolean = false;
+
   form: any = {
     email: null,
     password: null
@@ -34,9 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-    }
+
   }
   changeNewUserStatus() {
     this.newUser = !this.newUser
@@ -54,16 +48,15 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.form.email, this.form.password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
+        console.log(data.tokens.access, 'data')
+        this.tokenStorage.saveToken(data.tokens.access);
         this.tokenStorage.saveUser(data);
-
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
         this.router.navigate(['movies'])
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        window.location.reload()
       }
     );
   }

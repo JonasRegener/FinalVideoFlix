@@ -11,5 +11,5 @@ export class MovieplayerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ /*  https://blog.openreplay.com/playing-videos-in-angular-with-ngx-videogular/ */
 }
