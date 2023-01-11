@@ -49,13 +49,19 @@ h4 {
     background: rgb(187, 4, 4);
   }
   .thumbnail-img {
-    height: 180px; 
-    width: 240px;
+    height: 270px; 
+    width: 390px;
   }
 .content-list{
 
 
-  background-color: rgb(16, 16, 17);
+ 
   height: 100%;
   width: 100%;
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(37, 0, 0));
+}
+app-header {
+  position: fixed;
+  top: 0;
+  
 }

@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken() // ob islogged in einen inhalt hat, wird hier kontrolliert
+/*     this.isLoggedIn = !!this.tokenStorageService.getToken() // ob islogged in einen inhalt hat, wird hier kontrolliert
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     }
     if (this.isLoggedIn === false) {
       this.router.navigate(['login'])
-    }
+    } */
   }
   logout(): void {
     this.tokenStorageService.signOut();
