@@ -4,3 +4,11 @@
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.493), rgba(58, 58, 58, 0.486));
     
 }
+
+
+.hidden {
+    visibility: hidden;
+}
+.is-active {
+    visibility: unset !important;
+}

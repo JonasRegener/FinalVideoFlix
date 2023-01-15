@@ -7,127 +7,92 @@
                 <vg-overlay-play></vg-overlay-play>
                 <vg-buffering></vg-buffering>
 
-          
+
 
                 <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin>
-                    <source src="http://localhost:8000/movieST480/Arbeiten/" type="video/mp4">
+                    <source src="http://localhost:8000/movieST480/Balance/" type="video/mp4">
                 </video>
             </vg-player>
         </div>
     </div>
     <div style="position: absolute; top: 45px; bottom: 0; left: 0; right: 0; z-index: 1; min-height: 100%">
-        <div style="min-height: calc(100vh - 45px); width: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-            <h1 style="color: white; ">Krasse Partikel - der Film</h1>
+        <div
+            style="min-height: calc(100vh - 45px); width: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h1 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif;">Balance</h1>
+            <h2 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif;"> Das Leben ist ein Balance-Akt. Wer die Balance verliert, hat es schwer im Leben.</h2>
             <div>
-                <button mat-flat-button color="primary" style="margin-right: 12px; background-color: rgb(206, 41, 41);"> <mat-icon style="margin-right: 4px">preview</mat-icon>Vollbild </button>
-                <button mat-flat-button color="primary" style="background-color: rgb(206, 41, 41);">  <mat-icon style="margin-right: 4px; ">info</mat-icon>Details </button>
+                <button mat-flat-button color="primary" style="margin-right: 12px; background-color: rgb(206, 41, 41);">
+                    <mat-icon style="margin-right: 4px">preview</mat-icon>Vollbild </button>
+                <button mat-flat-button color="primary" style="background-color: rgb(206, 41, 41);"> <mat-icon
+                        style="margin-right: 4px; ">info</mat-icon>Details </button>
             </div>
         </div>
     </div>
 </div>
-<div class="content-list" style="padding-top:100px;">
+<div class="content-list" style="padding-top:100px; padding-left: 40px;">
     <div>
-        <h4> Menschen</h4>
-        karusell mit buttons
-        Entweder mit Shift Scrollen für horizonalten scroll oder noch etwas implementieren
-        <div class="subclass-container" style="overscroll-behavior: swipe;">
-            <div style="margin-right: 16px; position: relative; ; " (click)="startMoviePlayer()">
-                <img src="../../assets/Arbeiten.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 1</h6>
-                    <span> Beschreibung Nummer Eins</span>
+        <h2 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 36px; font-size: 32px;">
+            Tiere</h2>
 
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/Laufen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 2</h6>
-                    <span> Beschreibung Nummer Zwei</span>
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/Menschen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 3</h6>
-                    <span> Beschreibung Nummer Drei</span>
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/SeoulMenschen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 4</h6>
-                    <span> Beschreibung Nummer V</span>
+        <div class="subclass-container" style="overscroll-behavior: swipe; gap: 30px; overflow-y: hidden; ">
+            <div (click)="startMoviePlayerTitle(element)" style="position: relative; "
+                *ngFor="let element of moviesArray">
+                <div *ngIf="element.category === 'Tiere'">
+                    <img src='../../assets/animals/{{element.thumbnail_image}}.png' class="thumbnail-img"
+                        style="border-radius: 10px; box-shadow: 5px 3px 5px 3px rgba(88, 87, 87, 0.219);">
+
+                    <div class="centered" style="width: 200px; text-overflow: ellipsis;">
+                        <h2 style="text-align:center">{{ element.title }}</h2>
+                        <div style="width: 200px; text-align: center;">
+                            <p style="width: 175px; text-overflow: ellipsis;overflow: hidden; 
+                        white-space: nowrap;"> {{ element.description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <h4> Wissenschaft </h4>
+        <h2 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 36px; font-size: 28px;">
+            Menschen </h2>
         <div class="subclass-container">
-            <div style="margin-right: 16px; position: relative; ; " (click)="startMoviePlayer()">
-                <img src="../../assets/Arbeiten.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 1</h6>
-                    <span> Beschreibung Nummer Eins</span>
+            <div (click)="startMoviePlayerTitle(element)" style="position: relative;"
+                *ngFor="let element of moviesArray">
+                <div [ngStyle]="{'display': element.category === 'Menschen' ? 'unset' : 'none'}">
+                    <img src='../../assets/{{element.thumbnail_image}}.png' class="thumbnail-img"
+                        style="margin-right: 30px;border-radius: 10px; box-shadow: 5px 3px 5px 3px rgba(88, 87, 87, 0.219);">
 
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/Laufen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 2</h6>
-                    <span> Beschreibung Nummer Zwei</span>
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/Menschen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 3</h6>
-                    <span> Beschreibung Nummer Drei</span>
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/SeoulMenschen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 4</h6>
-                    <span> Beschreibung Nummer V</span>
+                    <div class="centered" style="width: 200px; text-overflow: ellipsis;">
+                        <h2 style="text-align:center">{{ element.title }}</h2>
+                        <div style="width: 200px; text-align: center;">
+                            <p style="width: 175px; text-overflow: ellipsis;overflow: hidden;
+                        white-space: nowrap;"> {{ element.description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <h4> Technik </h4>
+        <h2 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 36px; font-size: 32px;">
+            Technik </h2>
         <div class="subclass-container">
-            <div style="margin-right: 16px; position: relative; ; " (click)="startMoviePlayer()">
-                <img src="../../assets/Arbeiten.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 1</h6>
-                    <span> Beschreibung Nummer Eins</span>
+            <div (click)="startMoviePlayerTitle(element)" style="position: relative;"
+                *ngFor="let element of moviesArray">
+                <div [ngStyle]="{'display': element.category === 'Menschen' ? 'unset' : 'none'}">
+                    <img src='../../assets/{{element.thumbnail_image}}.png' class="thumbnail-img"
+                        style="margin-right: 30px;border-radius: 10px; box-shadow: 5px 3px 5px 3px rgba(88, 87, 87, 0.219);">
 
+                    <div class="centered" style="width: 200px; text-overflow: ellipsis;">
+                        <h2 style="text-align:center">{{ element.title }}</h2>
+                        <div style="width: 200px; text-align: center;">
+                            <p style="width: 175px; text-overflow: ellipsis;overflow: hidden;
+                    white-space: nowrap;"> {{ element.description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/Laufen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 2</h6>
-                    <span> Beschreibung Nummer Zwei</span>
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/Menschen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 3</h6>
-                    <span> Beschreibung Nummer Drei</span>
-                </div>
-            </div>
-            <div style="margin-right: 16px; position: relative;">
-                <img src="../../assets/SeoulMenschen.png" class="thumbnail-img">
-                <div class="centered">
-                    <h6 style="text-align:center"> Film 4</h6>
-                    <span> Beschreibung Nummer V</span>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

@@ -21,6 +21,8 @@ import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { MovieplayerComponent } from './movies/movieplayer/movieplayer.component';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { ProfildialogComponent } from './profildialog/profildialog.component';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     LoginComponent,
     ImprintComponent,
     MoviesComponent,
-    MovieplayerComponent
+    MovieplayerComponent,
+    ProfildialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +49,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     VgCoreModule,
     VgBufferingModule,
     VgOverlayPlayModule,
-    VgControlsModule
-  ,
+    VgControlsModule,
+    MatMenuModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent, MovieplayerComponent]

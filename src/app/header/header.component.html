@@ -1,9 +1,10 @@
-<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: fixed;" class="grad">
-    <div>
-        <h2 style="color:rgb(206, 41, 41); margin-left: 24px; margin-top: 12px;"> VideoFlix </h2>
-    </div>
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: fixed;"
+  class="grad">
+  <div>
+    <h2 style="color:rgb(206, 41, 41); margin-left: 24px; margin-top: 12px;"> VideoFlix </h2>
+  </div>
 
-    <div style="color: white; display: flex; justify-content: center; align-items: center; flex-direction: row;">
+  <div style="color: white; display: flex; justify-content: center; align-items: center; flex-direction: row;">
     <!--     <form class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>Suche</mat-label>
@@ -11,7 +12,18 @@
               <mat-hint > Suchen Sie etwas? </mat-hint>
             </mat-form-field>
           </form> -->
-        <mat-icon style="margin-right: 24px;" (click)="logout()">menu</mat-icon>
-       
-    </div>
+    <button mat-button [matMenuTriggerFor]="menu" class="hidden" style="margin-right: 24px;" [routerLink]="['/movies']"
+      routerLinkActive="is-active"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openDialog()">
+        <mat-icon>person</mat-icon>
+        <span>Profil</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon color="warn">logout</mat-icon>
+        <span >Logout</span>
+      </button>
+
+    </mat-menu>
+  </div>
 </div>

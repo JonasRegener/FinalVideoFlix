@@ -60,6 +60,26 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  signup(): void {
+
+
+    this.authService.register(this.form.username, this.form.email, this.form.password).subscribe(
+      data => {
+        console.log(data.tokens.access, 'data')
+        this.tokenStorage.saveToken(data.tokens.access);
+        this.tokenStorage.saveUser(data);
+        this.router.navigate(['movies'])
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+        window.location.reload()
+      }
+    );
+  }
+
+
   reloadPage(): void {
     window.location.reload();
   }
